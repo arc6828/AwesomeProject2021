@@ -6,10 +6,12 @@ export default function Network() {
     const [movies , setMovies] = useState([]); 
     const getMovies = async () => {
         try{
-            let promise = await fetch('https://www.csbootstrap.com/movies.json');
+            // let promise = await fetch('https://www.csbootstrap.com/movies.json');
+            let promise = await fetch('https://www.csbootstrap.com/api/movies');
             let data = await promise.json();
             console.log("Data : " , data);
-            setMovies(data.movies);
+            // setMovies(data.movies);
+            setMovies(data);
 
         }catch(error){
             console.log("ERROR : " , error);
@@ -18,15 +20,7 @@ export default function Network() {
     const clear = () => {
         //WRITE CODE HERE
 
-        <View style={{ 
-            flex : 1, 
-            flexDirection : 'column', 
-            justifyContent : 'flex-end', 
-            paddingHorizontal : 20 ,
-            paddingTop : 40 ,
-            }}>
-            <Text style={{ fontSize : 20 }}>Today Movies</Text>
-        </View>
+        
     }           
 
     return (
@@ -53,7 +47,7 @@ export default function Network() {
                         );
                     }
                 }
-                keyExtractor={item => item.id}
+                keyExtractor={item => ""+item.id}
                 />
             
             

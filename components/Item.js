@@ -11,12 +11,12 @@ export default function Item(props) {
        <View style={{ flex:1, flexDirection : 'row' }}>
 
             <Image source={{uri: props.image}}
-                style={{ width: 120, height: 120 }}
+                style={{ width: 80, height: 80 }}
             />
 
-            <View style={{ flex:1, flexDirection : 'column' }}>
-            <Text style={{fontWeight:'bold', fontSize :  30 }}>Title :{props.title} </Text>
-            <Text style={{ fontSize :  20 }}>ReleaseYear :{props.releaseYear}</Text>
+            <View style={{ flex:1, flexDirection : 'column', padding : 10 }}>
+                <Text style={{fontWeight:'bold', fontSize :  18 }}>Title :{props.title} </Text>
+                <Text style={{ fontSize :  14 }}>ReleaseYear :{props.releaseYear}</Text>
             </View>
 
         </View> 

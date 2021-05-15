@@ -16,9 +16,11 @@ import Ex12 from './screens/Ex12';
 import Bmi from './screens/Bmi';
 import Item from './components/Item'
 import Network from './screens/Network'
+import NetworkCreate from './screens/NetworkCreate'
 
 export default function App() {
   return (
+    // <NetworkCreate />    
     <Network />    
   );
 }
