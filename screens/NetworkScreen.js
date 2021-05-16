@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {  StyleSheet, Text, View, TextInput, Button, Image, FlatList } from 'react-native';
 import Item from '../components/Item';
 
-export default function Network() {   
+export default function NetworkScreen({ navigation }) {   
     const [movies , setMovies] = useState([]); 
     const getMovies = async () => {
         try{
@@ -53,6 +53,18 @@ export default function Network() {
             
             <Button title="Display Movies" onPress={getMovies} />
             <Button title="Clear" onPress={clear}  color="#841584" />
+            <Button 
+                title="Create New Movies" 
+                onPress={() => navigation.navigate('NetworkCreateScreen')} 
+                />
+            
+            <View>                
+                <Button  
+                    onPress={() => navigation.navigate('HomeScreen')}
+                    title="Next"
+                    color=""
+                    />
+            </View>  
         </View>
     );
 }

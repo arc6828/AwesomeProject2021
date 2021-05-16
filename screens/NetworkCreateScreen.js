@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput, Button } from 'react-native';
 
-export default function NetworkCreate() {   
+export default function NetworkCreateScreen({ navigation }) {   
     
     const [id , setID] = useState("");     
     const [title , setTitle] = useState(""); 
@@ -27,6 +27,7 @@ export default function NetworkCreate() {
             }); 
             let result = await promise.json();
             console.log("Result : " , result);
+            navigation.navigate('NetworkScreen');
             if(result.status == "success"){
                 console.log("Success !!! " );
                 //navigation.navigate('HomeScreen');

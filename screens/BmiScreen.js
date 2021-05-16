@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
-export default function Bmi() { 
+export default function BmiScreen({ navigation }) { 
 
     const [weight , setWeight] = useState('70');
     const [height , setHeight] = useState('170');
@@ -38,31 +38,42 @@ export default function Bmi() {
     <View style={{ 
         flex : 1, 
         flexDirection : 'column', 
-        justifyContent : 'center', 
         paddingHorizontal : 20 ,
         }}>
+        <View style={{ 
+            flex : 1, 
+            flexDirection : 'column', 
+            justifyContent : 'center', 
+            }}>
+            <Text style={{ fontSize : 30 }}>Weight (kgs) : </Text>
+            <TextInput 
+                placeholder="enter your weight ..."            
+                keyboardType="numeric"
+                style={{ marginBottom : 20 }} 
+                value={weight}
+                onChangeText={ (text) => setWeight(text) }
+                />
 
-        <Text style={{ fontSize : 30 }}>Weight (kgs) : </Text>
-        <TextInput 
-            placeholder="enter your weight ..."            
-            keyboardType="numeric"
-            style={{ marginBottom : 20 }} 
-            value={weight}
-            onChangeText={ (text) => setWeight(text) }
-            />
+            <Text style={{ fontSize : 30 }}>Height (cm) : </Text>
+            <TextInput 
+                placeholder="enter your height ..."
+                keyboardType="numeric"
+                style={{ marginBottom : 20 }}
+                value={height}
+                onChangeText={ (text) => setHeight(text) }
+                />
 
-        <Text style={{ fontSize : 30 }}>Height (cm) : </Text>
-        <TextInput 
-            placeholder="enter your height ..."
-            keyboardType="numeric"
-            style={{ marginBottom : 20 }}
-            value={height}
-            onChangeText={ (text) => setHeight(text) }
-            />
-
-        <Text style={{ fontSize : 30 }}>BMI : {bmi}</Text>
-        <Text style={{ fontSize : 30 }}>{thisBMI}</Text>
-        <Button title="Calculate" onPress={compute}   />
+            <Text style={{ fontSize : 30 }}>BMI : {bmi}</Text>
+            <Text style={{ fontSize : 30 }}>{thisBMI}</Text>
+            <Button title="Calculate" onPress={compute}   />
+        </View>
+        <View>                
+            <Button  
+                onPress={() => navigation.navigate('NetworkScreen')}
+                title="Next"
+                color=""
+                />
+        </View>  
 
     </View>
     );
