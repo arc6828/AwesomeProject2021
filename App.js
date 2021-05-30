@@ -17,6 +17,7 @@ import React from 'react';
 // import Item from './components/Item'
 // import Network from './screens/Network'
 // import NetworkCreate from './screens/NetworkCreate'
+import TodoTab from './navigations/TodoTab';
 
 import { NavigationContainer } from '@react-navigation/native';
 import HomeStack from './navigations/HomeStack';
@@ -26,22 +27,30 @@ import SecondBottomTab from './navigations/SecondBottomTab';
 import { createStackNavigator } from '@react-navigation/stack';
 const RootStack = createStackNavigator();
 
+import { fb } from './db_config';
+
 export default function App() {
   return (
     <NavigationContainer>
       {/* <BottomTab /> */}
       <RootStack.Navigator initialRouteName="BottomTab">
         <RootStack.Screen 
-            name="BottomTab" 
-            component={BottomTab} 
-            options={{  title: 'Main' , headerShown: false   }} 
-            />
+          name="BottomTab" 
+          component={BottomTab} 
+          options={{  title: 'Main' , headerShown: false   }} 
+          />
 
         <RootStack.Screen 
-            name="SecondBottomTab" 
-            component={SecondBottomTab} 
-            options={{  title: 'Second Tab'   }} 
-            />                               
+          name="SecondBottomTab" 
+          component={SecondBottomTab} 
+          options={{  title: 'Second Tab'   }} 
+          />       
+
+        <RootStack.Screen 
+          name="TodoTab" 
+          component={TodoTab} 
+          options={{  title: 'Todo Tab'   }} 
+          />                           
           
       </RootStack.Navigator>
 
