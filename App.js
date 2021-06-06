@@ -29,31 +29,40 @@ const RootStack = createStackNavigator();
 
 import { fb } from './db_config';
 
+
+import MapTab from './navigations/MapTab';
+
 export default function App() {
-  return (
-    <NavigationContainer>
-      {/* <BottomTab /> */}
-      <RootStack.Navigator initialRouteName="BottomTab">
-        <RootStack.Screen 
-          name="BottomTab" 
-          component={BottomTab} 
-          options={{  title: 'Main' , headerShown: false   }} 
-          />
+    return (
+        <NavigationContainer>
+            {/* <BottomTab /> */}
+            <RootStack.Navigator initialRouteName="BottomTab">
+                <RootStack.Screen 
+                    name="BottomTab" 
+                    component={BottomTab} 
+                    options={{  title: 'Main' , headerShown: false   }} 
+                    />
 
-        <RootStack.Screen 
-          name="SecondBottomTab" 
-          component={SecondBottomTab} 
-          options={{  title: 'Second Tab'   }} 
-          />       
+                <RootStack.Screen 
+                    name="SecondBottomTab" 
+                    component={SecondBottomTab} 
+                    options={{  title: 'Second Tab'   }} 
+                    />       
 
-        <RootStack.Screen 
-          name="TodoTab" 
-          component={TodoTab} 
-          options={{  title: 'Todo Tab'   }} 
-          />                           
-          
-      </RootStack.Navigator>
+                <RootStack.Screen 
+                    name="TodoTab" 
+                    component={TodoTab} 
+                    options={{  title: 'Todo Tab'   }} 
+                    />    
 
-    </NavigationContainer>
-  );
+                <RootStack.Screen 
+                    name="MapTab" 
+                    component={MapTab} 
+                    options={{  title: 'Location and Map'   }} 
+                    />                       
+                
+            </RootStack.Navigator>
+
+        </NavigationContainer>
+    );
 }
